@@ -12,6 +12,12 @@ import de.settla.economy.accounts.AdminShop;
 import de.settla.economy.accounts.AdminShopHandler;
 import de.settla.economy.accounts.BeamAccount;
 import de.settla.economy.accounts.BeamAccountHandler;
+import de.settla.economy.accounts.GuildAccount;
+import de.settla.economy.accounts.GuildAccountHandler;
+import de.settla.economy.accounts.HeadHunterAccount;
+import de.settla.economy.accounts.HeadHunterAccountHandler;
+import de.settla.economy.accounts.KillsAccount;
+import de.settla.economy.accounts.KillsAccountHandler;
 import de.settla.economy.accounts.Purse;
 import de.settla.economy.accounts.PurseHandler;
 import de.settla.economy.accounts.ServerAccount;
@@ -37,13 +43,20 @@ public class GlobalEconomy extends Economy {
 
 		addAccountHandler("server", "accounts", s -> new ServerAccountHandler(s), ServerAccountHandler.class);
 		addAccountHandler("adminshop", "accounts", s -> new AdminShopHandler(s), AdminShopHandler.class);
+		addAccountHandler("headhunter", "accounts", s -> new HeadHunterAccountHandler(s),
+				HeadHunterAccountHandler.class);
 		addAccountHandler("purse", "accounts", s -> new PurseHandler(s), PurseHandler.class);
+		addAccountHandler("kills", "accounts", s -> new KillsAccountHandler(s), KillsAccountHandler.class);
+		addAccountHandler("guild", "accounts", s -> new GuildAccountHandler(s), GuildAccountHandler.class);
 		addAccountHandler("beam", "accounts", s -> new BeamAccountHandler(s),
 				BeamAccountHandler.class);
 
+		addDefaultVault(s -> new GuildAccount(s, 0, 1000000000L), GuildAccountHandler.class);
 		addDefaultVault(s -> new Purse(s, 0, 10000000L), PurseHandler.class);
 		addDefaultVault(s -> new ServerAccount(s, 0, 0), ServerAccountHandler.class);
+		addDefaultVault(s -> new HeadHunterAccount(s, 0, 0), HeadHunterAccountHandler.class);
 		addDefaultVault(s -> new AdminShop(s, 0, 0), AdminShopHandler.class);
+		addDefaultVault(s -> new KillsAccount(s, 0, 0), KillsAccountHandler.class);
 		addDefaultVault(s -> new BeamAccount(s, 0, 1000L), BeamAccountHandler.class);
 
 	}
@@ -121,7 +134,7 @@ public class GlobalEconomy extends Economy {
 	@SuppressWarnings("unchecked")
 	public <T, A extends Account<T>, S extends AccountHandler<T, A>> void addAccountHandler(String name, String path,
 			Function<String, S> serialFunction, Class<S> clazz) {
-		Database<S> database = new Database<>(name, new File("plugins/StarMineSystem/" + path + "/" + name + ".data"), serialFunction, clazz);
+		Database<S> database = new Database<>(name, new File("plugins/SettlaBridge/" + path + "/" + name + ".data"), serialFunction, clazz);
 		Storage<S> store = new Storage<>(database);
 		ProxyServer.getInstance().getScheduler().schedule(GlobalPlugin.getInstance(), store, 0, 3,
 				TimeUnit.MINUTES);

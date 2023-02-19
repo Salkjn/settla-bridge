@@ -35,7 +35,7 @@ public class BeamCommand extends PlayerCommand {
 			
 			GlobalConfig config = GlobalPlugin.getInstance().getGlobalConfig();
 			
-			if (!config.isNetworkServers(player.getServer().getInfo().getName())) {
+			if (!config.isBeamServer(player.getServer().getInfo().getName())) {
 				player.sendMessage(new ComponentBuilder(GlobalBeamModule.PREFIX).append("Du kannst diesen Befehl ").color(ChatColor.GOLD).append("hier").color(ChatColor.GREEN).append(" nicht nutzen!").color(ChatColor.GOLD).create());
 				return;
 			}
@@ -49,7 +49,7 @@ public class BeamCommand extends PlayerCommand {
 					return;
 				}
 				
-				if (!config.isNetworkServers(target.getServer().getInfo().getName())) {
+				if (!config.isBeamServer(target.getServer().getInfo().getName())) {
 					player.sendMessage(new ComponentBuilder(GlobalBeamModule.PREFIX).append("Du kannst dich zu ").color(ChatColor.GOLD).append(target.getName()).color(ChatColor.GREEN).append(" nicht beamen!").color(ChatColor.GOLD).create());
 					return;
 				}
@@ -86,7 +86,7 @@ public class BeamCommand extends PlayerCommand {
 		if (ap.hasLessThan(2)) {
 			String val = ap.get(ap.size()).toLowerCase();
 			GlobalConfig config = GlobalPlugin.getInstance().getGlobalConfig();
-			List<String> sub = ProxyServer.getInstance().getPlayers().stream().filter(p -> p.getServer() != null && p.getServer().getInfo() != null && p.getServer().getInfo().getName() != null && config.isNetworkServers(p.getServer().getInfo().getName())).map(ProxiedPlayer::getName)
+			List<String> sub = ProxyServer.getInstance().getPlayers().stream().filter(p -> p.getServer() != null && p.getServer().getInfo() != null && p.getServer().getInfo().getName() != null && config.isBeamServer(p.getServer().getInfo().getName())).map(ProxiedPlayer::getName)
 					.filter(name -> name.toLowerCase().startsWith(val) && !name.equalsIgnoreCase(sender.getName())).collect(Collectors.toList());
 			return sub;
 		} else {

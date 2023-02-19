@@ -23,5 +23,7 @@ commands:
   localcloud:
     aliases: []
   portals:
+    aliases: []
+  adminshop:
     aliases: []              
                        

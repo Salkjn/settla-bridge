@@ -15,9 +15,11 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import de.settla.economy.Currency;
 import de.settla.economy.LocalEconomy;
+import de.settla.local.adminshop.ShopModule;
 import de.settla.local.beam.LocalBeamModule;
 import de.settla.local.cloud.LocalCloudModule;
 import de.settla.local.economysigns.EconomySignTopModule;
+import de.settla.local.guilds.LocalGuildModule;
 import de.settla.local.keys.KeyModule;
 import de.settla.local.kits.LocalKitData;
 import de.settla.local.kits.LocalKitModule;
@@ -96,6 +98,8 @@ public class LocalPlugin extends JavaPlugin implements ModuleManager {
 		
 		modules.put(LocalWarpPointModule.class, new LocalWarpPointModule(this, protocol));
 		modules.put(LocalCloudModule.class, new LocalCloudModule(this, protocol));
+		modules.put(ShopModule.class, new ShopModule(this));
+		modules.put(LocalGuildModule.class, new LocalGuildModule(this, protocol));
 		
 		if (config.isModuleEconomysigns())
 			modules.put(EconomySignTopModule.class, new EconomySignTopModule(this));

@@ -8,8 +8,13 @@ import java.util.function.Consumer;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.serialization.ConfigurationSerialization;
 
+import de.settla.economy.accounts.GuildAccountHandler;
+import de.settla.economy.accounts.HeadHunterAccountHandler;
+import de.settla.economy.accounts.KillsAccountHandler;
 import de.settla.economy.accounts.PurseHandler;
 import de.settla.local.LocalPlugin;
+import de.settla.local.guilds.CachedGuild;
+import de.settla.local.guilds.LocalGuildModule;
 import de.settla.utilities.module.Module;
 import de.settla.utilities.module.ModuleManager;
 
@@ -33,6 +38,31 @@ public class EconomySignTopModule extends Module<LocalPlugin> implements ModuleM
 						(tuple, sign) -> new String[] { "#" + sign.getRank(), tuple != null ? tuple.getX() : "???",
 								tuple != null ? String.valueOf(tuple.getY()) + "$" : "???", "" },
 						str -> Bukkit.getOfflinePlayer(UUID.fromString(str)).getName()));
+		
+		modules.put("headhunter",
+				new EconomySignTop<HeadHunterAccountHandler>(this, "headhunter", HeadHunterAccountHandler.class,
+						(tuple, sign) -> new String[] { "#" + sign.getRank(), tuple != null ? tuple.getX() : "???",
+								tuple != null ? String.valueOf(tuple.getY()) + "$" : "???", "" }, 
+						str -> Bukkit.getOfflinePlayer(UUID.fromString(str)).getName()));
+		
+		modules.put("kills",
+				new EconomySignTop<KillsAccountHandler>(this, "kills", KillsAccountHandler.class,
+						(tuple, sign) -> new String[] { "#" + sign.getRank(), tuple != null ? tuple.getX() : "???",
+								tuple != null ? String.valueOf(tuple.getY()) + "$" : "???", "" },
+						str -> Bukkit.getOfflinePlayer(UUID.fromString(str)).getName()));
+		
+		
+		modules.put("guild",
+				new EconomySignTop<GuildAccountHandler>(this, "guild", GuildAccountHandler.class,
+						(tuple, sign) -> new String[] { "#" + sign.getRank(), tuple != null ? tuple.getX() : "???",
+								tuple != null ? String.valueOf(tuple.getY()) + "$" : "???", "" },
+						str -> {
+							UUID uuid = UUID.fromString(str);
+							CachedGuild cachedGuild = getModuleManager().getModule(LocalGuildModule.class).getCachedGuilds().getGuildByUniqueId(uuid);
+							if(cachedGuild.isDownloaded() && cachedGuild.getGuild() != null)
+								return cachedGuild.getGuild().getName().getShortName();
+							return "???";
+						}));
 		
 	}
 

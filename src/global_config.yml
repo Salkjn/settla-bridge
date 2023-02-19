@@ -1,2 +1,8 @@
-networkServers:
+sidebarServers:
     - spawn
+    - settla
+    - clan  
+beamServers:
+    - spawn
+    - settla
+    - clan  

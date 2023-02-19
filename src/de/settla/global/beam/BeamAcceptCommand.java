@@ -36,7 +36,7 @@ public class BeamAcceptCommand extends PlayerCommand {
 
 			GlobalConfig config = GlobalPlugin.getInstance().getGlobalConfig();
 
-			if (!config.isNetworkServers(target.getServer().getInfo().getName())) {
+			if (!config.isBeamServer(target.getServer().getInfo().getName())) {
 				target.sendMessage(new ComponentBuilder(GlobalBeamModule.PREFIX).append("Du kannst diese Beam-Anfrage ")
 						.color(ChatColor.GOLD).append("hier").color(ChatColor.GREEN).append(" nicht annehmen.")
 						.color(ChatColor.GOLD).create());
@@ -53,7 +53,7 @@ public class BeamAcceptCommand extends PlayerCommand {
 				if (request != null && request.isAcceptable()) {
 					module.removeBeamRequest(player.getUniqueId(), target.getUniqueId());
 
-					if (!config.isNetworkServers(player.getServer().getInfo().getName())) {
+					if (!config.isBeamServer(player.getServer().getInfo().getName())) {
 						player.sendMessage(new ComponentBuilder(GlobalBeamModule.PREFIX).append("Die Beam-Anfrage an ")
 								.color(ChatColor.GOLD).append(target.getName()).color(ChatColor.GREEN).append(" wurde abgebrochen!")
 								.color(ChatColor.GOLD).create());

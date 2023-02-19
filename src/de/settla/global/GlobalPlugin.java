@@ -16,9 +16,13 @@ import de.settla.economy.Currency;
 import de.settla.economy.GlobalEconomy;
 import de.settla.global.beam.GlobalBeamModule;
 import de.settla.global.cloud.GlobalCloudModule;
+import de.settla.global.commands.EconomyCommand;
+import de.settla.global.commands.MoneyCommand;
+import de.settla.global.commands.PayCommand;
 import de.settla.global.commands.PingCommand;
 import de.settla.global.commands.SpawnCommand;
 import de.settla.global.essentials.EssentialsModule;
+import de.settla.global.guilds.GuildGlobalModule;
 import de.settla.global.kits.GlobalKitData;
 import de.settla.global.kits.GlobalKitModule;
 import de.settla.global.warp.GlobalWarpPointModule;
@@ -75,6 +79,9 @@ public class GlobalPlugin extends net.md_5.bungee.api.plugin.Plugin implements M
 		protocol = SakkoProtocol.createSakkoProtocol(SakkoServer.createSakkoServer(new SakkoAddress(Utility.DEFAULT_ADDRESS, Utility.DEFAULT_PORT), msg -> {}));
 		economy = new GlobalEconomy(protocol, new Currency("Coins", "$"));
 		
+		registerCommand(new PayCommand("pay"));
+		registerCommand(new EconomyCommand("economy", "eco"));
+		registerCommand(new MoneyCommand("balance", "bal"));
 		registerCommand(new SpawnCommand());
 		registerCommand(new PingCommand("ping"));
 		
@@ -83,6 +90,7 @@ public class GlobalPlugin extends net.md_5.bungee.api.plugin.Plugin implements M
 		modules.put(GlobalWarpPointModule.class, new GlobalWarpPointModule(this, protocol));
 		modules.put(GlobalCloudModule.class, new GlobalCloudModule(this, protocol));
 		modules.put(GlobalKitModule.class, new GlobalKitModule(this, protocol));
+		modules.put(GuildGlobalModule.class, new GuildGlobalModule(this, protocol));
 		
 		enable();
 	}

@@ -23,6 +23,11 @@ public enum ChatConvention {
 		return "";
 	}
 	
+	// 10
+	public static final String[] NUMBER = {"➊","➋","➌","➍","➎","➏","➐","➑","➒","➓"};
+	// 8
+	public static final String[] BLANK = {"▁","▂","▃","▄","▅","▆","▇","█"};
+	
 	public static final Pattern pattern = Pattern.compile("([^\\%]*)(\\%)(\\w+)(\\%)([^\\%]*)", Pattern.CASE_INSENSITIVE);
 	
 	public static String title(Object title){

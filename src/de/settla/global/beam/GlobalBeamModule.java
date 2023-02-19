@@ -224,7 +224,7 @@ public class GlobalBeamModule extends Module<GlobalPlugin> {
 											if (player.isConnected() && target.isConnected()) {
 												GlobalConfig config = GlobalPlugin.getInstance().getGlobalConfig();
 												if (checkpermission) {
-													if (!(config.isNetworkServers(player.getServer().getInfo().getName()) && config.isNetworkServers(target.getServer().getInfo().getName()))) {
+													if (!(config.isBeamServer(player.getServer().getInfo().getName()) && config.isBeamServer(target.getServer().getInfo().getName()))) {
 														result.accept(false);
 														return;
 													}

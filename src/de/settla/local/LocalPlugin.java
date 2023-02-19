@@ -70,7 +70,7 @@ public class LocalPlugin extends JavaPlugin implements ModuleManager {
 		config = new LocalConfig(this);
 		commands = new Commands(this);
 		protocol = SakkoProtocol.createSakkoProtocol(SakkoClient.createSakkoClient(new SakkoAddress(Utility.DEFAULT_ADDRESS, Utility.DEFAULT_PORT), msg -> {}));
-		economy = new LocalEconomy(protocol, new Currency("CCoins", "$"));
+		economy = new LocalEconomy(protocol, new Currency("Coins", "$"));
 		
 		initLocalPlayers();
 		
@@ -116,6 +116,10 @@ public class LocalPlugin extends JavaPlugin implements ModuleManager {
 	public void onDisable() {
 		localPlayers.run();
 		disable();
+	}
+	
+	public static void dieMaus() {
+		
 	}
 	
 	public static LocalPlugin getInstance() {

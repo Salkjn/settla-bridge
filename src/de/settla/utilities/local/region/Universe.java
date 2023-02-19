@@ -15,7 +15,7 @@ import org.bukkit.event.Cancellable;
 import org.bukkit.event.Event;
 import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.scheduler.BukkitRunnable;
-import org.spigotmc.AsyncCatcher;
+//import org.spigotmc.AsyncCatcher;
 
 import de.settla.local.LocalPlugin;
 import de.settla.utilities.functions.Action;
@@ -143,7 +143,7 @@ public class Universe extends Module<LocalPlugin> {
 	 * An useful function to disable the bukkit async-catcher.
 	 */
 	public void disableAsyncCatcher() {
-		AsyncCatcher.enabled = false;
+//		AsyncCatcher.enabled = false;
 	}
 	
 	/**

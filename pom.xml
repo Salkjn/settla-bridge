@@ -26,6 +26,14 @@
 			</plugin>
 		</plugins>
 	</build>
+	
+	<distributionManagement>
+ 		<repository>
+      		<id>github</id>
+      		<name>GitHub Packages</name>
+      		<url>https://maven.pkg.github.com/Salkjn/github-releases</url>
+    	</repository>
+	</distributionManagement>
 
 	<repositories>
 		<repository>
@@ -70,11 +78,11 @@
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
-    <groupId>com.github.azbh111</groupId>
-    <artifactId>craftbukkit-1.8.8</artifactId>
-    <version>R</version>
-</dependency>
-		
+			<groupId>com.github.azbh111</groupId>
+			<artifactId>craftbukkit-1.8.8</artifactId>
+			<version>R</version>
+		</dependency>
+
 	</dependencies>
 
 </project>

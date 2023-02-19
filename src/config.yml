@@ -1,0 +1,10 @@
+sakko:
+    serverName: spawn 
+    
+modules:
+    adminshop: true
+    npc: true
+    kit: true
+    tutorial: true
+    economysigns: true
+    lobby: false

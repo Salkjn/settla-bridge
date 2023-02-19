@@ -1,0 +1,4 @@
+name: SettlaBridge
+main: de.settla.global.GlobalPlugin
+version: 1.0
+author: Salkin

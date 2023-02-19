@@ -1,0 +1,27 @@
+name: SettlaBridge
+main: de.settla.local.LocalPlugin
+version: 1.0
+author: Salkin
+depend: [Vault]  
+commands:        
+  tools:
+    aliases: []
+  selection:
+    aliases: []  
+  generation:
+    aliases: [gen]
+  key:
+    aliases: []
+  npc:
+    aliases: []  
+  tutorial:
+    aliases: []
+  tutorialreload:
+    aliases: []
+  economysign:
+    aliases: [ecosign]
+  localcloud:
+    aliases: []
+  portals:
+    aliases: []              
+                       

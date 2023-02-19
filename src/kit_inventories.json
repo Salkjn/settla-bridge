@@ -1,0 +1,49 @@
+{"INVENTORIES":[
+  {
+    "id": "kitshow",
+    "title": "",
+    "lines": 5,
+    "inherit": null,
+    "items": []
+  },
+  {
+	    "id": "key",
+	    "title": "§b Key",
+	    "lines": 3,
+	    "items": [
+	      {"slot": 0, "item": "blocked"},
+	      {"slot": 1, "item": "blocked"},
+	      {"slot": 2, "item": "blocked"},
+	      {"slot": 3, "item": "blocked"},
+	      {"slot": 4, "item": "blocked"},
+	      {"slot": 5, "item": "blocked"},
+	      {"slot": 6, "item": "blocked"},
+	      {"slot": 7, "item": "blocked"},
+	      {"slot": 8, "item": "blocked"},
+	
+	      {"slot": 9, "item": "blocked"},
+	      {"slot": 10, "item": "blocked"},
+	      {"slot": 11, "item": "blocked"},
+	      {"slot": 12, "item": "blocked"},
+	      {"slot": 14, "item": "blocked"},
+	      {"slot": 15, "item": "blocked"},
+	      {"slot": 16, "item": "blocked"},
+	      {"slot": 17, "item": "blocked"},
+	
+	      {"slot": 18, "item": "blocked"},
+	      {"slot": 19, "item": "blocked"},
+	      {"slot": 20, "item": "blocked"},
+	      {"slot": 21, "item": "blocked"},
+	      {"slot": 22, "item": "blocked"},
+	      {"slot": 23, "item": "blocked"},
+	      {"slot": 24, "item": "blocked"},
+	      {"slot": 25, "item": "blocked"},
+	      {"slot": 26, "item": "blocked"}]
+ 	},
+  	{
+	    "id": "keyshow",
+	    "title": "§2",
+	    "lines": 5,
+	    "items": []
+    }
+]}

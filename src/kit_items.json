@@ -1,0 +1,26 @@
+{"ITEMS":[
+  {
+    "id": "blocked",
+    "title": "§6",
+    "enchantEffect": false,
+    "type": 160,
+    "data": 7,
+    "lore": []
+  },
+  {
+    "id": "test",
+    "title": "§3Test Key",
+    "enchantEffect": true,
+    "type": 131,
+    "data": 0,
+    "lore": ["&7Löse diesen Key am","&7Spawn ein!"]
+  },
+  {
+    "id": "star",
+    "title": "§3Star Key",
+    "enchantEffect": true,
+    "type": 131,
+    "data": 0,
+    "lore": ["&7Löse diesen Key am","&7Spawn ein!"]
+  }
+]}

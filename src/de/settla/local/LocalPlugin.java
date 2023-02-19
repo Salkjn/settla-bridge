@@ -118,7 +118,7 @@ public class LocalPlugin extends JavaPlugin implements ModuleManager {
 		disable();
 	}
 	
-	public static void dieMaus() {
+	public static void dieMausOjee() {
 		
 	}
 	

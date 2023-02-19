@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>settla-bridge</groupId>
 	<artifactId>settla-bridge</artifactId>
-	<version>0.0.2-SNAPSHOT</version>
+	<version>0.0.3-SNAPSHOT</version>
 	<build>
 		<sourceDirectory>src</sourceDirectory>
 		<defaultGoal>clean install</defaultGoal>

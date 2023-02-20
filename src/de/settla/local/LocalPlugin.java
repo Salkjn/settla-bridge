@@ -79,7 +79,7 @@ public class LocalPlugin extends JavaPlugin implements ModuleManager {
 		VaultHelper.setupPermissions();
 		VaultHelper.setupEconomy();
 		
-		//modules adding
+		// modules adding
 		modules.put(GuiModule.class, new GuiModule(this));
 		modules.put(AnvilGuiModule.class, new AnvilGuiModule(this));
 		if (config.isModuleNpc())

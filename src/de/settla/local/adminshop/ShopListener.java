@@ -33,7 +33,7 @@ public class ShopListener implements Listener {
 		super();
 		this.module = module;
 	}
-
+	//TEST
 	@EventHandler
 	public void onSignChange(SignChangeEvent e) {
 		if (e.getLine(0) != null && e.getLine(1) != null && e.getLine(2) != null) {

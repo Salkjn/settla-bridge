@@ -155,8 +155,8 @@ public class LocalPlugin extends JavaPlugin implements ModuleManager {
 
 	@Override
 	public void enable() {
-		modules.values().forEach(m -> m.onPreEnable());
-		modules.values().forEach(m -> m.onEnable());
+		modules.values().forEach(Module::onPreEnable);
+		modules.values().forEach(Module::onEnable);
 	}
 	
 	@SuppressWarnings("unchecked")

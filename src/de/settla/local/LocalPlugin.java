@@ -180,8 +180,8 @@ public class LocalPlugin extends JavaPlugin implements ModuleManager {
 	}
 	
 	private void initLocalPlayers() {
-		Memory.register(LocalPlayers.class, map -> new LocalPlayers(map));
-		Memory.register(LocalPlayer.class, map -> new LocalPlayer(map));
+		Memory.register(LocalPlayers.class, LocalPlayers::new);
+		Memory.register(LocalPlayer.class, LocalPlayer::new);
 		
 		LocalPlayer.addDefaultData(uuid -> new LocalKitData(), LocalKitData.class);
 		

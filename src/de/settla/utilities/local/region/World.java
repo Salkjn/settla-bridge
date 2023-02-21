@@ -101,7 +101,7 @@ public class World implements ChangeTracked, Storable {
 	}
 	
 	/**
-	 * Unregister the region from the chunkmanager and register the region to the regionindex.
+	 * Unregister the region from the chunk manager and register the region to the region-index.
 	 * 
 	 * @param region the region to unregister from this world.
 	 */
@@ -114,7 +114,7 @@ public class World implements ChangeTracked, Storable {
 	}
 
 	/**
-	 * Deletes the region from the chunkmanager and regionindex.
+	 * Deletes the region from the chunk manager and region-index.
 	 * 
 	 * @param region the region to delete.
 	 */
@@ -127,7 +127,7 @@ public class World implements ChangeTracked, Storable {
 	}
 
 	/**
-	 * @return true if all regions from the regionindex are registered to the chunkmanager.
+	 * @return true if all regions from the region-index are registered to the chunk manager.
 	 */
 	public boolean isLoaded() {
 		return loaded;

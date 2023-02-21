@@ -6,6 +6,7 @@
 	<artifactId>settla-bridge</artifactId>
 	<version>0.0.4-SNAPSHOT</version>
 	<build>
+		<finalName>settla-bridge</finalName>
 		<sourceDirectory>src</sourceDirectory>
 		<defaultGoal>clean install</defaultGoal>
 		<resources>

@@ -150,7 +150,7 @@ public class LocalPlugin extends JavaPlugin implements ModuleManager {
 
 	@Override
 	public void disable() {
-		modules.values().forEach(m -> m.onDisable());
+		modules.values().forEach(Module::onDisable);
 	}
 
 	@Override

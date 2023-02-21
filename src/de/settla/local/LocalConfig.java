@@ -5,7 +5,7 @@ import org.bukkit.configuration.file.YamlConfiguration;
 public class LocalConfig {
 
 	private String serverName;
-	
+
 	private boolean adminshop, npc, kit, tutorial, economysigns, blocks;
 
 	private boolean lobby;

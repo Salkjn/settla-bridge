@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
 
 import de.settla.utilities.storage.StaticParser;
 import de.settla.utilities.storage.Storable;
-
+//Niklas hat Abzug
 abstract public class Account<T> implements Storable {
 
 	public final static int MAXIMAL_TRANSACTIONS = 30;

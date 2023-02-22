@@ -23,7 +23,10 @@ public class WarpCommand extends PlayerCommand {
 
 	@Override
 	protected void execute(ProxiedPlayer player, ArgumentParser ap) {
-		
+
+		// delay in seconds
+		int delay = 5;
+
 		if(ap.hasNoArguments()) {
 			player.sendMessage(new ComponentBuilder(GlobalWarpPointModule.PREFIX).append("Verwendung: /warp <warp>")
 					.color(ChatColor.GOLD).create());
@@ -39,7 +42,6 @@ public class WarpCommand extends PlayerCommand {
 					player.sendMessage(new ComponentBuilder(GlobalWarpPointModule.PREFIX).append("Du befindest dich bereits in einem Warp-Vorgang.")
 							.color(ChatColor.GOLD).create());
 				} else {
-					int delay = 5;
 					
 					player.sendMessage(new ComponentBuilder(GlobalWarpPointModule.PREFIX).append("Du wirst zum Warp ").color(ChatColor.GOLD).append(point.getName()).color(ChatColor.GREEN).append(" gebeamt!\n Du darfst dich " + delay
 									+ (delay == 1 ? " Sekunde" : " Sekunden") + " lang nicht bewegen!")

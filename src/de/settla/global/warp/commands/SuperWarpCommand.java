@@ -42,7 +42,7 @@ public class SuperWarpCommand extends Command {
 			} else {
 				player = ap.hasAtLeast(2) ? ProxyServer.getInstance().getPlayer(ap.get(2)) : null;
 			}
-			
+
 			final ProxiedPlayer finalPlayer = player;
 			
 			if (finalPlayer == null) {
@@ -53,7 +53,7 @@ public class SuperWarpCommand extends Command {
 				WarpPoint point = mod.getWarpPoints().getWarp(pointName);
 				
 				if(point != null) {
-			
+
 					mod.warp(finalPlayer, point, result -> {
 						if (result) {
 							if (self.get()) {

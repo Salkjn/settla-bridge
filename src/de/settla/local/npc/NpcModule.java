@@ -66,11 +66,11 @@ public class NpcModule extends Module<LocalPlugin> {
 	private void registerModels() {
 
 		addModel(new NpcModel("admin_shop", p -> {
-			// p.performCommand("warp adminshop");
-			Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "warp adminshop " + p.getName());
+			 p.performCommand("warp adminshop");
+//			Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "warp adminshop " + p.getName());
 		}, p -> {
-			// p.performCommand("vote shop");
-			Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "warp adminshop " + p.getName());
+			 p.performCommand("vote shop");
+//			Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "warp adminshop " + p.getName());
 		}, p -> "§e✪§f§lAdmin Shop§e✪", null, p -> "§e>> §a§lKLICK §e<<", null, null));
 
 		addModel(new NpcModel("jobs_browse", p -> {

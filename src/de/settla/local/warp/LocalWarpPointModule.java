@@ -36,9 +36,6 @@ public class LocalWarpPointModule extends Module<LocalPlugin> implements Listene
 		public void run() {
 			getSakkoProtocol().ask("get_warp_points", q -> q.put("server", LocalPlugin.getInstance().getLocalConfig().getServerName(), String.class), answer -> {
 				warpPoints = answer.getStorableAnswer("warps", WarpPoints.class);
-
-				Bukkit.getConsoleSender().sendMessage(warpPoints.getWarps().stream().reduce((a, b) -> a + ", " + b).get());
-
 			});
 		}
 	};

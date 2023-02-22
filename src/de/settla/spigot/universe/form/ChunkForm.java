@@ -61,12 +61,12 @@ public class ChunkForm extends Form {
 
 	@Override
 	public Vector minimum() {
-		return new Vector(x() << size(), 0, z() << size());
+		return new Vector(x() << size(), -100, z() << size());
 	}
 
 	@Override
 	public Vector maximum() {
-		return new Vector(((x() + 1) << size()) - 1, 300, ((z() + 1) << size()) - 1);
+		return new Vector(((x() + 1) << size()) - 1, 400, ((z() + 1) << size()) - 1);
 	}
 
 	@Override

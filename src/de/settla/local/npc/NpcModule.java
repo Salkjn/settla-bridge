@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Consumer;
 
+import de.settla.local.cloud.LocalCloudModule;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.scheduler.BukkitRunnable;
@@ -66,8 +67,9 @@ public class NpcModule extends Module<LocalPlugin> {
 	private void registerModels() {
 
 		addModel(new NpcModel("admin_shop", p -> {
+			LocalPlugin.getInstance().getModule(LocalCloudModule.class).dispatchBungeeCommand(LocalCloudModule.CONSOLE, "warp adminshop " + p.getName(), result -> {});
 //			 p.performCommand("warp adminshop");
-			 Bukkit.dispatchCommand(p, "warp adminshop");
+//			 Bukkit.dispatchCommand(p, "warp adminshop");
 //			Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "warp adminshop " + p.getName());
 		}, p -> {
 //			 p.performCommand("vote shop");

@@ -85,18 +85,14 @@ public class LocalPlugin extends JavaPlugin implements ModuleManager {
 		modules.put(AnvilGuiModule.class, new AnvilGuiModule(this));
 		if (config.isModuleNpc())
 			modules.put(NpcModule.class, new NpcModule(this));
-		
 		modules.put(Universe.class, new Universe(this));
 		modules.put(TemplateModule.class, new TemplateModule(this));
 		modules.put(GenerationModule.class, new GenerationModule(this));
 		modules.put(SpecialItemModule.class, new SpecialItemModule(this));
 		modules.put(KeyModule.class, new KeyModule(this));
-		
 		modules.put(ProtectionModule.class, new ProtectionModule(this));
-		
 		modules.put(LocalBeamModule.class, new LocalBeamModule(this, protocol));
 		modules.put(LocalPortalsModule.class, new LocalPortalsModule(this, protocol));
-		
 		modules.put(LocalWarpPointModule.class, new LocalWarpPointModule(this, protocol));
 		modules.put(LocalCloudModule.class, new LocalCloudModule(this, protocol));
 		modules.put(ShopModule.class, new ShopModule(this));
@@ -121,10 +117,6 @@ public class LocalPlugin extends JavaPlugin implements ModuleManager {
 	public void onDisable() {
 		localPlayers.run();
 		disable();
-	}
-	
-	public static void dieMausOjee() {
-		
 	}
 	
 	public static LocalPlugin getInstance() {

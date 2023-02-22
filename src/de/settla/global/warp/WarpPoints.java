@@ -27,14 +27,14 @@ public class WarpPoints implements Storable {
 	
 	@SuppressWarnings("unchecked")
 	public WarpPoints(Map<String, Object> map) {
-		((List<Map<String, Object>>)map.get("warps")).stream().forEach(s -> warps.add(deserialize(s, WarpPoint.class)));
+		((List<Map<String, Object>>)map.get("warps")).forEach(s -> warps.add(deserialize(s, WarpPoint.class)));
 	}
 	
 	@Override
 	public Map<String, Object> serialize() {
 		synchronized (lock) {
 			Map<String, Object> map = Storable.super.serialize();
-			map.put("warps", warps.stream().map(g -> g.serialize()).collect(Collectors.toList()));
+			map.put("warps", warps.stream().map(WarpPoint::serialize).collect(Collectors.toList()));
 			return map;
 		}	
 	}

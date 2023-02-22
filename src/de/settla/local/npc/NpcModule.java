@@ -67,13 +67,14 @@ public class NpcModule extends Module<LocalPlugin> {
 	private void registerModels() {
 
 		addModel(new NpcModel("admin_shop", p -> {
-			LocalPlugin.getInstance().getModule(LocalCloudModule.class).dispatchBungeeCommand(LocalCloudModule.CONSOLE, "swarp adminshop " + p.getName(), result -> {});
+//			LocalPlugin.getInstance().getModule(LocalCloudModule.class).dispatchBungeeCommand(LocalCloudModule.CONSOLE, "swarp adminshop " + p.getName(), result -> {});
 //			 p.performCommand("warp adminshop");
 //			 Bukkit.dispatchCommand(p, "warp adminshop");
 //			Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "warp adminshop " + p.getName());
 		}, p -> {
+			LocalPlugin.getInstance().getModule(LocalCloudModule.class).dispatchBungeeCommand(LocalCloudModule.CONSOLE, "swarp adminshop " + p.getName(), result -> {});
 //			 p.performCommand("vote shop");
-			Bukkit.dispatchCommand(p, "vote shop");
+//			Bukkit.dispatchCommand(p, "vote shop");
 //			Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "warp adminshop " + p.getName());
 		}, p -> "§e✪§f§lAdmin Shop§e✪", null, p -> "§e>> §a§lKLICK §e<<", null, null));
 

@@ -166,7 +166,7 @@ public class GenerationCommand extends OverviewCommand {
 		protected void execute(CommandSender sender, ArgumentParser ap) {
 			Galaxy galaxy = LocalPlugin.getInstance().getModule(Universe.class).getGalaxy(GenerationModule.GALAXY_NAME);
 			List<Region> regions = new ArrayList<>();
-			galaxy.throughWorlds(world -> world.getRegionIndex().throughRegions(region -> regions.add(region)));
+			galaxy.throughWorlds(world -> world.getRegionIndex().throughRegions(regions::add));
 			List<GenerationRegion> generations = Utils.filter(regions, GenerationRegion.class, (a -> a.getGenerationPaster().getState() == GenerationState.RUNNING));
 			generations.forEach(gen -> gen.getGenerationPaster().stop());
 			String str = Utils.toString(generations, ",", region -> "(" + region.id() + "=" + region.getGenerationPaster().getState() + ")");

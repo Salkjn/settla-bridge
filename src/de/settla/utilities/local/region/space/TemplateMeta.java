@@ -47,7 +47,7 @@ public class TemplateMeta implements Storable {
 	public static TemplateMeta loadTemplate(TemplateModule module, String id) throws FileNotFoundException, DataException {
 		checkNotNull(module);
 		checkNotNull(id);
-		checkNotNull(module);
+
 		id = Normal.normalize(id);
 		
 		Map<String, Object> map = module.loadJson("/templates/"+id+".template");

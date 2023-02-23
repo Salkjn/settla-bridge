@@ -62,10 +62,6 @@
 			<id>jitpack.io</id>
 			<url>https://jitpack.io</url>
 		</repository>
-		<repository>
-			<id>enginehub-maven</id>
-			<url>https://maven.enginehub.org/repo/</url>
-		</repository>
 	</repositories>
 	<dependencies>
 		<dependency>
@@ -98,12 +94,6 @@
 			<groupId>com.github.azbh111</groupId>
 			<artifactId>craftbukkit-1.8.8</artifactId>
 			<version>R</version>
-		</dependency>
-		<dependency>
-			<groupId>com.sk89q.worldedit</groupId>
-			<artifactId>worldedit-bukkit</artifactId>
-			<version>7.2.9</version>
-			<scope>provided</scope>
 		</dependency>
 	</dependencies>
 </project>

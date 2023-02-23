@@ -39,7 +39,6 @@ public class UniverseModule extends Module<LocalPlugin> {
         Memory.register(Position.class, Position::new);
         Memory.register(Galaxy.class, Galaxy::new);
         Memory.register(CleanWorld.class, CleanWorld::new);
-        Memory.register(Schematic.class, Schematic::new);
         Memory.register(RegionCollection.class, (BiFunction<CleanWorld, JsonObject, RegionCollection>) RegionCollection::new);
     }
 }

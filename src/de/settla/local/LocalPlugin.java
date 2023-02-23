@@ -8,6 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Consumer;
 
+import de.settla.spigot.universe.UniverseModule;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.event.Listener;
@@ -86,6 +87,7 @@ public class LocalPlugin extends JavaPlugin implements ModuleManager {
 		if (config.isModuleNpc())
 			modules.put(NpcModule.class, new NpcModule(this));
 		modules.put(Universe.class, new Universe(this));
+		modules.put(UniverseModule.class, new UniverseModule(this));
 		modules.put(TemplateModule.class, new TemplateModule(this));
 		modules.put(GenerationModule.class, new GenerationModule(this));
 		modules.put(SpecialItemModule.class, new SpecialItemModule(this));

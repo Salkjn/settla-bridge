@@ -1,10 +1,9 @@
-package de.settla.spigot.universe.space;
+package de.settla.spigot.universe;
 
 import java.io.File;
 import java.nio.file.Files;
 
 import de.settla.local.LocalPlugin;
-import de.settla.spigot.universe.Vector;
 import de.settla.spigot.universe.form.Form;
 import de.settla.memory.MemoryException;
 import de.settla.memory.MemoryName;
@@ -49,37 +48,36 @@ public class Schematic implements MemoryStorable<Schematic> {
     
     private final static String SCHEMATIC_SUFFIX = ".schematic";
 
-    private final String name;
+    private final Form form;
+    private final Direction direction;
     private final String destination;
 
-    public Schematic(String name, String destination) {
-    	this.name = name;
-    	this.destination = destination;
+    public Schematic(Form form, Direction direction, String destination) {
+        this.form = form;
+    	this.direction = direction;
+        this.destination = destination;
     }
 
     public Schematic(JsonObject json) {
-    	this.name = json.get("name").getAsString();
-    	this.destination = json.get("destination").getAsString();
+        this.form = deserialize(json.get("form").getAsJsonObject(), Form.class);
+        this.direction = Direction.valueOf(json.get("direction").getAsString());
+        this.destination = json.get("destination").getAsString();
     }
     
     @Override
     public JsonObject serialize() throws MemoryException {
         JsonObject json = MemoryStorable.super.serialize();
-        json.addProperty("name", name);
+        json.add("form", form.serialize());
+        json.addProperty("direction", direction.name());
         json.addProperty("destination", destination);
         return json;
     }
 
-    public String getName() {
-		return name;
-	}
-    
-    public File getDestination() {
+    public File getDestinationFile() {
         return new File(LocalPlugin.getInstance().getDataFolder(), destination + SCHEMATIC_SUFFIX);
     }
-    
 
-    public void save(org.bukkit.World w, Form form) {
+    public void save(org.bukkit.World w) {
         World world = new BukkitWorld(w);
         Vector fmin = form.minimum();
         Vector fmax = form.maximum();
@@ -98,7 +96,7 @@ public class Schematic implements MemoryStorable<Schematic> {
                 Operations.complete(forwardExtentCopy);
             }
 
-            File file = getDestination();
+            File file = getDestinationFile();
 
             try (ClipboardWriter writer = BuiltInClipboardFormat.SPONGE_SCHEMATIC
                     .getWriter(Files.newOutputStream(file.toPath()))) {
@@ -115,7 +113,7 @@ public class Schematic implements MemoryStorable<Schematic> {
         BlockVector3 min = BlockVector3.at(fmin.getBlockX(), fmin.getBlockY(), fmin.getBlockZ());
     	
         World world = new BukkitWorld(w);
-        File file = getDestination();
+        File file = getDestinationFile();
 
         ClipboardFormat format = ClipboardFormats.findByFile(file);
         try {

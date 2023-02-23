@@ -2,7 +2,7 @@ name: SettlaBridge
 main: de.settla.local.LocalPlugin
 version: 1.1
 author: Salkin
-depend: [Vault]  
+depend: [Vault, WorldEdit]
 commands:        
   tools:
     aliases: []

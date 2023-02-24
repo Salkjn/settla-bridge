@@ -92,10 +92,9 @@ public class EconomySignTopModule extends Module<LocalPlugin> implements ModuleM
 		modules.values().forEach(m -> m.onEnable());
 	}
 
-	@SuppressWarnings("unchecked")
 	@Override
-	public <M extends Module<?>> void modules(Consumer<M> consumer) {
-		modules.values().forEach((Consumer<? super Module<?>>) consumer);
+	public void modules(Consumer<Module<?>> consumer) {
+		modules.values().forEach(consumer);
 	}
 
 }

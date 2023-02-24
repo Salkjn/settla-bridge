@@ -9,7 +9,7 @@ public interface ModuleManager {
 	
 	<M extends Module<?>> M getModule(Class<M> clazz);
 	
-	<M extends Module<?>> void modules(Consumer<M> consumer);
+	void modules(Consumer<Module<?>> consumer);
 	
 	void disable();
 	

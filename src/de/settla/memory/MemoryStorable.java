@@ -22,7 +22,7 @@ import com.google.gson.JsonObject;
 
 public interface MemoryStorable<This extends MemoryStorable<This>> {
 
-    default <T extends MemoryStorable> T deserialize(JsonObject json, Class<T> clazz) throws MemoryException {
+    default <T extends MemoryStorable<?>> T deserialize(JsonObject json, Class<T> clazz) throws MemoryException {
         return Memory.deserialize(json, clazz);
     }
 

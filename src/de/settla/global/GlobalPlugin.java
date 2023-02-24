@@ -117,11 +117,10 @@ public class GlobalPlugin extends net.md_5.bungee.api.plugin.Plugin implements M
 		modules.values().forEach(m -> m.onPreEnable());
 		modules.values().forEach(m -> m.onEnable());
 	}
-	
-	@SuppressWarnings("unchecked")
+
 	@Override
-	public <M extends Module<?>> void modules(Consumer<M> consumer) {
-		modules.values().forEach((Consumer<? super Module<?>>) consumer);
+	public void modules(Consumer<Module<?>> consumer) {
+		modules.values().forEach(consumer);
 	}
 	
 	private void initGlobalPlayers() {
